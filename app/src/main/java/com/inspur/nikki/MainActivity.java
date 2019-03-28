@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mImageView = findViewById(R.id.iv);
-        mImageView.setImageBitmap(QRCodeUtil.createQRCodeBitmap("http://www.baidu.com", 400));
+        mImageView = findViewById(R.id.iv); //http://www.baidu.com
+        mImageView.setImageBitmap(QRCodeUtil.createQRCodeBitmap("陈震爱小宝宝，青青爱老公！", 400));
     }
 }
