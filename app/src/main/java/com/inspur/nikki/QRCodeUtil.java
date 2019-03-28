@@ -82,8 +82,13 @@ public class QRCodeUtil {
      *
      * @param content 字符串内容
      * @param size 位图宽&高(单位:px)
+<<<<<<< HEAD
      * @param character_set 字符集/字符转码格式 (支持格式:{@link  })。传null时,zxing源码默认使用 "ISO-8859-1"
      * @param error_correction 容错级别 (支持级别:{@link  })。传null时,zxing源码默认使用 "L"
+=======
+     * @param character_set 字符集/字符转码格式 (支持格式:{@link  })。传null时,zxing源码默认使用 "ISO-8859-1"
+     * @param error_correction 容错级别 (支持级别:{@link  })。传null时,zxing源码默认使用 "L"
+>>>>>>> 05bcf92b97f9b613a699bde4f998cd986f3785cd
      * @param margin 空白边距 (可修改,要求:整型且>=0), 传null时,zxing源码默认使用"4"。
      * @param color_black 黑色色块的自定义颜色值
      * @param color_white 白色色块的自定义颜色值
