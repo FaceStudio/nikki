@@ -1,18 +1,73 @@
 package com.inspur.nikki;
 
+import android.support.annotation.StringRes;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ImageView;
+import android.view.Menu;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageView mImageView;
+    TabLayout tabLayout;
+    ViewPager pager;
+    List<PageModel> pageModels = new ArrayList<>();
+
+    {
+        pageModels.add(new PageModel(new Fragment_QR(), R.string.app_name));
+        pageModels.add(new PageModel(new Fragment_QR(), R.string.app_name));
+        pageModels.add(new PageModel(new Fragment_QR(), R.string.app_name));
+        pageModels.add(new PageModel(new Fragment_QR(), R.string.app_name));
+        pageModels.add(new PageModel(new Fragment_QR(), R.string.app_name));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mImageView = findViewById(R.id.iv); //http://www.baidu.com
-        mImageView.setImageBitmap(QRCodeUtil.createQRCodeBitmap("陈震爱小宝宝，青青爱老公！", 500));
+
+        pager = (ViewPager) findViewById(R.id.pager);
+        pager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
+
+            @Override
+            public Fragment getItem(int position) {
+                PageModel pageModel = pageModels.get(position);
+                return pageModel.fragment;
+            }
+
+            @Override
+            public int getCount() {
+                return pageModels.size();
+            }
+
+            @Override
+            public CharSequence getPageTitle(int position) {
+                return getString(pageModels.get(position).titleRes);
+            }
+        });
+
+        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        tabLayout.setupWithViewPager(pager);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    private class PageModel {
+        @StringRes
+        int titleRes;
+        Fragment fragment;
+
+        PageModel(Fragment fragment, @StringRes int titleRes) {
+            this.fragment = fragment;
+            this.titleRes = titleRes;
+        }
     }
 }
