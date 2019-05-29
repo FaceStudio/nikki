@@ -1,6 +1,5 @@
 package com.inspur.nikki;
 
-import android.support.annotation.StringRes;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -19,9 +18,9 @@ public class MainActivity extends AppCompatActivity {
     List<PageModel> pageModels = new ArrayList<>();
 
     {
-        pageModels.add(new PageModel(new Fragment_QR(), R.string.app_name));
-        pageModels.add(new PageModel(new Fragment_QR(), R.string.app_name));
-        pageModels.add(new PageModel(new Fragment_QR(), R.string.app_name));
+        pageModels.add(new PageModel(new Fragment_QR(), R.string.qr_code));
+        pageModels.add(new PageModel(new Fragment_AIDL(), R.string.aidl_function));
+        pageModels.add(new PageModel(new Fragment_QR(), R.string.view_draw));
         pageModels.add(new PageModel(new Fragment_QR(), R.string.app_name));
         pageModels.add(new PageModel(new Fragment_QR(), R.string.app_name));
     }
@@ -61,11 +60,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private class PageModel {
-        @StringRes
         int titleRes;
         Fragment fragment;
 
-        PageModel(Fragment fragment, @StringRes int titleRes) {
+        PageModel(Fragment fragment, int titleRes) {
             this.fragment = fragment;
             this.titleRes = titleRes;
         }
