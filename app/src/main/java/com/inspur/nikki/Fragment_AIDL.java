@@ -20,6 +20,7 @@ public class Fragment_AIDL extends Fragment {
 
         View view = inflater.inflate(R.layout.layout_aidl, container, false);
 
+
         return view;
 
     }

@@ -7,11 +7,11 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
-import com.inspur.nikki.zxing.BarcodeFormat;
-import com.inspur.nikki.zxing.BitMatrix;
-import com.inspur.nikki.zxing.EncodeHintType;
-import com.inspur.nikki.zxing.QRCodeWriter;
-import com.inspur.nikki.zxing.WriterException;
+import com.inspur.nikki.util_QR.BarcodeFormat;
+import com.inspur.nikki.util_QR.BitMatrix;
+import com.inspur.nikki.util_QR.EncodeHintType;
+import com.inspur.nikki.util_QR.QRCodeWriter;
+import com.inspur.nikki.util_QR.WriterException;
 
 import java.util.Hashtable;
 
