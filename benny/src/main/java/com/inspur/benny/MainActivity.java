@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (mIMyAidlInterface != null) {
                     try {
-                        mIMyAidlInterface.login("nikki", "123456");
+                        mIMyAidlInterface.login("Nikki", "123456");
                     } catch (RemoteException e) {
                         e.printStackTrace();
                     }
@@ -52,18 +52,6 @@ public class MainActivity extends AppCompatActivity {
         intent.setPackage("com.inspur.nikki");
         bindService(intent, new ConnectCallBack(), Context.BIND_AUTO_CREATE);
 
-    }
-
-
-
-    public void login(View view) {
-        if (mIMyAidlInterface != null) {
-            try {
-                mIMyAidlInterface.login("nikki", "123456");
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
-        }
     }
 
     class ConnectCallBack implements ServiceConnection {
