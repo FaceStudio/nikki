@@ -25,7 +25,7 @@ public class Fragment_Copy extends Fragment {
         View view = inflater.inflate(R.layout.layout_copy,container,false);
 
         String path = "/mnt/sdcard/";
-        copy(getContext(),"1.jpg",path,"11.jpg");
+        copy(getContext(),"1.jpg",path,"chenzhen.jpg");
 
         return view;
     }
