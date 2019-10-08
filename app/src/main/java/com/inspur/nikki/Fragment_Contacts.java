@@ -58,6 +58,7 @@ public class Fragment_Contacts extends Fragment {
 
     private void readContacts() {
         Cursor cursor = null;
+        contactlists.clear();
         try {
             // 查询联系人数据
             cursor = getContext().getContentResolver().query(

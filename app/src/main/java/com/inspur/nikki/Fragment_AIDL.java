@@ -15,6 +15,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+//AIDL服务端
+
 public class Fragment_AIDL extends Fragment implements AIDLService.OnLoginListener{
 
     private TextView tv_show;

@@ -18,6 +18,9 @@ import android.widget.Button;
 
 import com.inspur.nikki.IMyAidlInterface;
 
+
+//AIDL客户端
+
 public class MainActivity extends AppCompatActivity {
 
     private IMyAidlInterface mIMyAidlInterface;
