@@ -39,6 +39,7 @@ public class AIDLService extends Service {
         public void login(String userName, String password) throws RemoteException {
             Log.d(TAG, "mOnLoginListener = " + mOnLoginListener);
             if (mOnLoginListener != null) {
+                //不需要界面的话，直接在这里提供需要服务就好了
                 mOnLoginListener.login(userName, password);
             }
         }

@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     List<PageModel> pageModels = new ArrayList<>();
 
     {
+        pageModels.add(new PageModel(new Fragment_Play(), R.string.play));
         pageModels.add(new PageModel(new Fragment_QR(), R.string.qr_code));
         pageModels.add(new PageModel(new Fragment_AIDL(), R.string.aidl_function));
         pageModels.add(new PageModel(new Fragment_Contacts(), R.string.list_contact));

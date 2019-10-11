@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (mIMyAidlInterface != null) {
-                    try {
+                    try {   //此处传递真正的参数
                         mIMyAidlInterface.login("Nikki", "123456");
                     } catch (RemoteException e) {
                         e.printStackTrace();
