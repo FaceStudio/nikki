@@ -20,16 +20,6 @@
             </intent-filter>
         </activity>
 
-        <service
-            android:name=".PlayService"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.inspur.benny"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
-        </service>
-
     </application>
 
 </manifest>

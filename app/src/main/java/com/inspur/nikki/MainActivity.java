@@ -6,7 +6,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 
 import java.util.ArrayList;
@@ -19,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
     List<PageModel> pageModels = new ArrayList<>();
 
     {
-        pageModels.add(new PageModel(new Fragment_Play(), R.string.play));
         pageModels.add(new PageModel(new Fragment_QR(), R.string.qr_code));
         pageModels.add(new PageModel(new Fragment_AIDL(), R.string.aidl_function));
         pageModels.add(new PageModel(new Fragment_Contacts(), R.string.list_contact));
