@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
 
     {
         pageModels.add(new PageModel(new Fragment_QR(), R.string.qr_code));
-        pageModels.add(new PageModel(new Fragment_AIDL(), R.string.aidl_function));
         pageModels.add(new PageModel(new Fragment_Contacts(), R.string.list_contact));
         pageModels.add(new PageModel(new Fragment_Copy(), R.string.asset_copy));
         pageModels.add(new PageModel(new Fragment_File(), R.string.file));
