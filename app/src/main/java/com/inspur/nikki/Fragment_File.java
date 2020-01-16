@@ -47,7 +47,7 @@ public class Fragment_File extends Fragment {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
+
                 dbHelper.getWritableDatabase();
             }
         });
@@ -56,7 +56,7 @@ public class Fragment_File extends Fragment {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
+
                 SQLiteDatabase db = dbHelper.getWritableDatabase();
                 ContentValues values = new ContentValues();
                 //开始组装第一天数据
@@ -80,7 +80,7 @@ public class Fragment_File extends Fragment {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
+
                 SQLiteDatabase db = dbHelper.getWritableDatabase();
                 ContentValues values = new ContentValues();
                 values.put("price", 10.99);
@@ -92,11 +92,22 @@ public class Fragment_File extends Fragment {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
+
                 SQLiteDatabase db = dbHelper.getWritableDatabase();
                 db.delete("Book", "pages > ?", new String[]{"500"});
             }
         });
+
+        Button speedButton = (Button) view.findViewById(R.id.speed_test);
+        speedButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
         return view;
     }
 
@@ -119,7 +130,6 @@ public class Fragment_File extends Fragment {
             writer = new BufferedWriter(new OutputStreamWriter(out));
             writer.write(inputText);
         } catch (Exception e) {
-            // TODO: handle exception
             e.printStackTrace();
         } finally {
             try {
@@ -127,7 +137,6 @@ public class Fragment_File extends Fragment {
                     writer.close();
                 }
             } catch (Exception e) {
-                // TODO: handle exception
                 e.printStackTrace();
             }
         }
@@ -145,14 +154,12 @@ public class Fragment_File extends Fragment {
                 content.append(line);
             }
         } catch (Exception e) {
-            // TODO: handle exception
             e.printStackTrace();
         } finally {
             if (reader != null) {
                 try {
                     reader.close();
                 } catch (Exception e) {
-                    // TODO: handle exception
                     e.printStackTrace();
                 }
             }
@@ -180,14 +187,13 @@ public class Fragment_File extends Fragment {
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-            // TODO Auto-generated method stub
             db.execSQL(CREATE_BOOK);
             Toast.makeText(mContext, "create succeed", Toast.LENGTH_LONG).show();
         }
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            // TODO Auto-generated method stub
+
 
         }
     }

@@ -32,6 +32,13 @@
         android:layout_below="@id/update_data"
         android:text="delete data" />
 
+    <Button
+        android:id="@+id/speed_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/delete_data"
+        android:text="Speed Test" />
+
     <EditText
         android:id="@+id/edit"
         android:layout_width="match_parent"
