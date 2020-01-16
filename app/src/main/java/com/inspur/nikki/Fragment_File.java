@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +16,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import net.BaseNetCallBack;
+import net.MonitorNetWork;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStreamReader;
@@ -104,6 +109,34 @@ public class Fragment_File extends Fragment {
             @Override
             public void onClick(View v) {
 
+                final File file = new File("/mnt/speedfile.ts");
+                final String url = "http://60.208.86.91:8080/iptv-task/speedtest";
+                final long nowTimeStamp = System.currentTimeMillis();
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        new MonitorNetWork(getContext()).reportFile(url, file, new BaseNetCallBack() {
+                            @Override
+                            public void onCallSuccess(String s) {
+                                super.onCallSuccess(s);
+
+                                Log.i("Nikki", "len:" + file.length());
+
+                                long speed = ((file.length() * 1000 / 8 / 1024) / (System.currentTimeMillis() - nowTimeStamp));//毫秒转换
+
+                                Log.i("Nikki", "speed:" + speed);
+//
+                            }
+
+                            @Override
+                            public void onCallFailed() {
+                                super.onCallFailed();
+                                Log.i("Nikki", "failed");
+                            }
+                        });
+                    }
+                }).start();
             }
         });
 

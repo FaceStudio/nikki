@@ -14,6 +14,7 @@
         android:icon="@drawable/java"
         android:label="@string/app_name"
         android:roundIcon="@drawable/java"
+        android:networkSecurityConfig="@xml/network_config"
         android:supportsRtl="true"
         android:theme="@style/AppThemeWelcome">
 

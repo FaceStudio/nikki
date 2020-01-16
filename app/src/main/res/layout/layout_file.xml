@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/delete_data"
-        android:text="Speed Test" />
+        android:text="Upload Speed Test" />
 
     <EditText
         android:id="@+id/edit"
