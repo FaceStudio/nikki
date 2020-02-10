@@ -109,34 +109,10 @@ public class Fragment_File extends Fragment {
             @Override
             public void onClick(View v) {
 
-                final File file = new File("/mnt/speedfile.ts");
-                final String url = "http://60.208.86.91:8080/iptv-task/speedtest";
-                final long nowTimeStamp = System.currentTimeMillis();
+                Log.i("Nikki", "speed:" + SpeedTestUtil.speed(getContext()));
 
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        new MonitorNetWork(getContext()).reportFile(url, file, new BaseNetCallBack() {
-                            @Override
-                            public void onCallSuccess(String s) {
-                                super.onCallSuccess(s);
+//                Toast.makeText(getContext(),"",Toast.LENGTH_LONG).show();
 
-                                Log.i("Nikki", "len:" + file.length());
-
-                                long speed = ((file.length() * 1000 / 8 / 1024) / (System.currentTimeMillis() - nowTimeStamp));//毫秒转换
-
-                                Log.i("Nikki", "speed:" + speed);
-//
-                            }
-
-                            @Override
-                            public void onCallFailed() {
-                                super.onCallFailed();
-                                Log.i("Nikki", "failed");
-                            }
-                        });
-                    }
-                }).start();
             }
         });
 
