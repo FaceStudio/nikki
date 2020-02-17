@@ -22,7 +22,7 @@ import com.inspur.nikki.utils.StringUtil;
 
 
 /**
- * Created by anderson on 2016/6/5.
+ * Created by nikki on 2020/2/17.
  */
 public class DashboardView extends View {
 

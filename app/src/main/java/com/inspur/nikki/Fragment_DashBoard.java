@@ -19,7 +19,7 @@ public class Fragment_DashBoard extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.layout_dashboard, container, false);
-        dashboardView = (DashboardView)view.findViewById(R.id.dashboardView);
+        dashboardView = (DashboardView) view.findViewById(R.id.dashboardView);
 
         seekBar = (SeekBar) view.findViewById(R.id.seekBar);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {

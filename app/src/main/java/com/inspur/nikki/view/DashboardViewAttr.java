@@ -8,7 +8,7 @@ import com.inspur.nikki.R;
 import com.inspur.nikki.utils.PxUtils;
 
 /**
- * Created by anderson on 2016/6/5.
+ * Created by nikki on 2020/2/17.
  */
 public class DashboardViewAttr {
     private int mTextSize;
