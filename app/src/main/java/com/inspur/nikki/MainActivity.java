@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         pageModels.add(new PageModel(new Fragment_Contacts(), R.string.list_contact));
         pageModels.add(new PageModel(new Fragment_Copy(), R.string.asset_copy));
         pageModels.add(new PageModel(new Fragment_File(), R.string.file));
+        pageModels.add(new PageModel(new Fragment_DashBoard(), R.string.dashboard));
     }
 
     @Override
