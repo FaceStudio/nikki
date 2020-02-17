@@ -1,4 +1,4 @@
-package com.inspur.nikki;
+package com.inspur.nikki.utils;
 
 import android.util.Log;
 

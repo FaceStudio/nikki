@@ -1,4 +1,4 @@
-package com.inspur.nikki;
+package com.inspur.nikki.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;

@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.inspur.nikki.utils.QRCodeUtil;
+
 public class Fragment_QR extends Fragment {
 
 

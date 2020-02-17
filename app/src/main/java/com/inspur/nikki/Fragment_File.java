@@ -16,12 +16,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import net.BaseNetCallBack;
-import net.MonitorNetWork;
+import com.inspur.nikki.utils.SpeedTestUtil;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStreamReader;

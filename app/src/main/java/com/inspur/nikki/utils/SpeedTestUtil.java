@@ -1,4 +1,4 @@
-package com.inspur.nikki;
+package com.inspur.nikki.utils;
 
 import android.content.Context;
 import android.util.Log;
@@ -21,7 +21,7 @@ public class SpeedTestUtil {
 
         final CountDownLatch ctl = new CountDownLatch(1);
 
-        final File file = new File("/mnt/mine.psd");
+        final File file = new File("/mnt/mine.psd");//10M左右文件
         final String url = "http://60.208.86.91:8080/iptv-task/speedtest";
 
         long a = System.currentTimeMillis();
