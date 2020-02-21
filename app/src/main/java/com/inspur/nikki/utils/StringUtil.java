@@ -3,7 +3,7 @@ package com.inspur.nikki.utils;
 import java.math.BigDecimal;
 
 /**
- * Created by hzxushangfei on 2016/1/24.
+ * Created by Nikki on 2016/1/24.
  */
 public class StringUtil {
     /**

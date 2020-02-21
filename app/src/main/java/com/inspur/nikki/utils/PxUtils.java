@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.TypedValue;
 
 /**
- * Created by hzxushangfei on 2016/1/22.
+ * Created by Nikki on 2016/1/22.
  * dp2px
  * sp2px
  */

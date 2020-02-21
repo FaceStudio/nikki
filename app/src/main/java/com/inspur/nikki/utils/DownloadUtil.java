@@ -94,9 +94,9 @@ public class DownloadUtil {
 
                         sum += len;
                         int progress = (int) (sum * 1.0f / total * 100);
-                        Log.i("Nikki", "progress:" + progress);
+                        Log.i("Nikki", "DownloadUtils-->progress:" + progress);
 
-                        long speed = ((sum * 1000) / (System.currentTimeMillis() - startTime));
+                        long speed = ((sum * 1000/1024) / (System.currentTimeMillis() - startTime));
 
                         // 下载中
                         listener.onDownloading((int)speed);

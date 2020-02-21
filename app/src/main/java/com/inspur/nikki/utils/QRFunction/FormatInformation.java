@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.inspur.nikki.util_QR;
+package com.inspur.nikki.utils.QRFunction;
 
 /**
  * <p>Encapsulates a QR Code's format information, including the data mask used and

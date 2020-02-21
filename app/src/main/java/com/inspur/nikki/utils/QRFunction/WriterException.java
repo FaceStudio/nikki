@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.inspur.nikki.util_QR;
+package com.inspur.nikki.utils.QRFunction;
 
 /**
  * A base class which covers the range of exceptions which may occur when encoding a barcode using

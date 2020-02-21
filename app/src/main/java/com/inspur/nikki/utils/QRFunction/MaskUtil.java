@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.inspur.nikki.util_QR;
+package com.inspur.nikki.utils.QRFunction;
 
 /**
  * @author Satoru Takabayashi

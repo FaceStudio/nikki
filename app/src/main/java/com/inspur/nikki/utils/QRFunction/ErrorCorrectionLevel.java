@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.inspur.nikki.util_QR;
+package com.inspur.nikki.utils.QRFunction;
 
 /**
  * <p>See ISO 18004:2006, 6.5.1. This enum encapsulates the four error correction levels

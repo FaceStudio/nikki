@@ -1,5 +1,6 @@
 package com.inspur.nikki;
 
+import android.annotation.SuppressLint;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -7,7 +8,6 @@ import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatImageView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +17,8 @@ import android.view.animation.LinearInterpolator;
 
 public class Fragment_Diagnose extends Fragment {
 
-    Handler handler = new Handler(){
+    @SuppressLint("HandlerLeak")
+    Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
@@ -28,17 +29,20 @@ public class Fragment_Diagnose extends Fragment {
                     icon_loading.clearAnimation();
                     icon_loading.setBackground(getResources().getDrawable(R.mipmap.done));
                     animation2.start();
+                    break;
+
+                case 2:
 
                     break;
             }
         }
     };
 
-    AppCompatImageView icon_connect,icon_connect2;
+    AppCompatImageView icon_connect, icon_connect2;
 
-    AnimationDrawable animation,animation2;
+    AnimationDrawable animation, animation2;
 
-    AppCompatImageView icon_loading,icon_loading2,icon_loading3;
+    AppCompatImageView icon_loading, icon_loading2, icon_loading3;
 
     @Nullable
     @Override
@@ -79,7 +83,7 @@ public class Fragment_Diagnose extends Fragment {
 //            handler.sendEmptyMessage(1);
 //        }
 
-        handler.sendEmptyMessageDelayed(1,2500);
+        handler.sendEmptyMessageDelayed(1, 2500);
 
     }
 

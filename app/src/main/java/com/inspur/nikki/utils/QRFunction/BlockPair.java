@@ -1,5 +1,5 @@
 /*
- * Copyright 2007 ZXing authors
+ * Copyright 2008 ZXing authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,23 +14,24 @@
  * limitations under the License.
  */
 
-package com.inspur.nikki.util_QR;
+package com.inspur.nikki.utils.QRFunction;
 
-/**
- * Thrown when a barcode was successfully detected, but some aspect of
- * the content did not conform to the barcode's format rules. This could have
- * been due to a mis-detection.
- *
- * @author Sean Owen
- */
-public final class FormatException extends ReaderException {
+final class BlockPair {
 
-  private static final FormatException INSTANCE = new FormatException();
-  static {
-    INSTANCE.setStackTrace(NO_TRACE); // since it's meaningless
+  private final byte[] dataBytes;
+  private final byte[] errorCorrectionBytes;
+
+  BlockPair(byte[] data, byte[] errorCorrection) {
+    dataBytes = data;
+    errorCorrectionBytes = errorCorrection;
   }
 
-  private FormatException() {
+  public byte[] getDataBytes() {
+    return dataBytes;
+  }
+
+  public byte[] getErrorCorrectionBytes() {
+    return errorCorrectionBytes;
   }
 
 }

@@ -27,14 +27,13 @@ public class Fragment_DashBoard extends Fragment {
 
         @Override
         public void onDownloading(final int progress) {
-            Log.i("Nikki","progress:"+progress);
+            Log.i("Nikki","speed:"+progress);
             getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    dashboardView.setPercent(progress/1900);
+                    dashboardView.setPercent(progress*100/1900);
                 }
             });
-
         }
 
         @Override
@@ -73,7 +72,6 @@ public class Fragment_DashBoard extends Fragment {
             @Override
             public void onClick(View view) {
                 DownloadUtil.get().download("http://pcclient.download.youku.com/youkuclient/youkuclient_setup_7.9.2.1151.exe","/download",listener);
-
             }
         });
 
