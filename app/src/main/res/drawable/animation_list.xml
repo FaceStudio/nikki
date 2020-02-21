@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+    <item android:drawable="@drawable/bg_menu_circular1" android:duration="200" />
+    <item android:drawable="@drawable/bg_menu_circular2" android:duration="200" />
+    <item android:drawable="@drawable/bg_menu_circular3" android:duration="200" />
+    <item android:drawable="@drawable/bg_menu_circular4" android:duration="200" />
+    <item android:drawable="@drawable/bg_menu_circular5" android:duration="200" />
+    <item android:drawable="@drawable/bg_menu_circular6" android:duration="200" />
+    <item android:drawable="@drawable/bg_menu_circular7" android:duration="200" />
+    <item android:drawable="@drawable/bg_menu_circular8" android:duration="200" />
+    <item android:drawable="@drawable/bg_menu_circular9" android:duration="200" />
+    <item android:drawable="@drawable/bg_menu_circular10" android:duration="200" />
+</animation-list>

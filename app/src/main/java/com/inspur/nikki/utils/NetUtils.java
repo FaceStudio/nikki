@@ -7,6 +7,7 @@ import android.net.TrafficStats;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -32,6 +33,74 @@ public class NetUtils {
     private static final int TIME_OUT = 10 * 1000; // 超时时间
     private static final String CHARSET = "utf-8"; // 设置编码
 
+
+    //是否连接上路由器
+    public static boolean isConnectRouter(Context context) {
+        try {
+            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            if (connectivityManager != null) {
+                NetworkInfo networkInfo = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+                NetworkInfo networkInfo2 = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_ETHERNET);
+                if (networkInfo == null || !networkInfo.isConnected()) {
+                    return networkInfo2 != null && networkInfo2.isConnected();
+                }
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+
+        return false;
+    }
+
+    //路由器能否ping通外网
+    public static Boolean checkNetwork() {
+        Runtime runtime = Runtime.getRuntime();
+        try {
+            Process process = runtime.exec("ping -c 3 www.baidu.com");
+            int res = process.waitFor();
+            return (res == 0);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    public static boolean ping() {
+        String result = null;
+        try {
+            String ip = "www.baidu.com";// 除非百度挂了，否则用这个应该没问题~
+            Process p = Runtime.getRuntime().exec("ping -c 1 -w 100 " + ip);// ping1次
+            // 读取ping的内容，可不加。
+            InputStream input = p.getInputStream();
+            BufferedReader in = new BufferedReader(new InputStreamReader(input));
+            StringBuffer stringBuffer = new StringBuffer();
+            String content = "";
+            while ((content = in.readLine()) != null) {
+                stringBuffer.append(content);
+            }
+            Log.i("TTT", "result content : " + stringBuffer.toString());
+            // PING的状态
+            int status = p.waitFor();
+            if (status == 0) {
+                result = "successful~";
+                return true;
+            } else {
+                result = "failed~ cannot reach the IP address";
+            }
+        } catch (IOException e) {
+            result = "failed~ IOException";
+        } catch (InterruptedException e) {
+            result = "failed~ InterruptedException";
+        } finally {
+            Log.i("TTT", "result = " + result);
+        }
+        return false;
+    }
+
     /**
      * 得到网络速度
      *
@@ -50,7 +119,6 @@ public class NetUtils {
 //        netSpeed  = String.valueOf(speed) + " kb/s";
 //        return  netSpeed;
 //    }
-
     public String getNetSpeed(Context context) {
         WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
         WifiInfo wifiInfo = wifiManager.getConnectionInfo();
@@ -108,8 +176,8 @@ public class NetUtils {
     /**
      * 上传文件到服务器
      *
-     * @param uploadUrl   上传服务器地址
-     * @param filePath 本地文件路径
+     * @param uploadUrl 上传服务器地址
+     * @param filePath  本地文件路径
      */
     public static void uploadFile(String uploadUrl, String filePath) {
         try {
@@ -163,7 +231,7 @@ public class NetUtils {
     /**
      * Android上传文件到服务端
      *
-     * @param file 需要上传的文件
+     * @param file       需要上传的文件
      * @param RequestURL 请求的rul
      * @return 返回响应的内容
      */

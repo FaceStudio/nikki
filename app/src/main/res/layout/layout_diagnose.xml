@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerVertical="true"
+    android:background="@mipmap/bg"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/donghua"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:dividerPadding="10dp"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/tv_show"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@mipmap/icon_menu_tv" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/cartoon_photo"
+            android:layout_width="180dp"
+            android:layout_height="50dp" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/router_show"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@mipmap/icon_menu_router_hover" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/cartoon_photo2"
+            android:layout_width="180dp"
+            android:layout_height="50dp" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/internet_show"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@mipmap/icon_menu_network_hover" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/donghua"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/icon_loading"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@mipmap/dia_icon_loading" />
+
+            <TextView
+                android:id="@+id/state_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="电视已连接到路由器!"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="15dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/icon_loading2"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@mipmap/dia_icon_loading" />
+
+            <TextView
+                android:id="@+id/state_router"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="路由器能正常访问因特网!"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="15dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/icon_loading3"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@mipmap/dia_icon_loading" />
+
+            <TextView
+                android:id="@+id/state_dns"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="DNS配置是否正常!"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

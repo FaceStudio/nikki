@@ -7,6 +7,7 @@
     <string name="asset_copy">图片资源复制</string>
     <string name="file">数据处理</string>
     <string name="dashboard">仪表盘</string>
+    <string name="diagnose">网络诊断</string>
     <string name="view_draw">自定义view绘制</string>
 
 

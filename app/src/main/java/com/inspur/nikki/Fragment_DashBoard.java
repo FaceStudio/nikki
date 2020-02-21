@@ -3,17 +3,45 @@ package com.inspur.nikki;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.SeekBar;
-
+import com.inspur.nikki.utils.DownloadUtil;
 import com.inspur.nikki.view.DashboardView;
+
 
 public class Fragment_DashBoard extends Fragment {
 
     DashboardView dashboardView;
     SeekBar seekBar;
+    Button start;
+
+    DownloadUtil.OnDownloadListener listener = new DownloadUtil.OnDownloadListener() {
+        @Override
+        public void onDownloadSuccess() {
+
+        }
+
+        @Override
+        public void onDownloading(final int progress) {
+            Log.i("Nikki","progress:"+progress);
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    dashboardView.setPercent(progress/1900);
+                }
+            });
+
+        }
+
+        @Override
+        public void onDownloadFailed() {
+
+        }
+    };
 
     @Nullable
     @Override
@@ -39,12 +67,18 @@ public class Fragment_DashBoard extends Fragment {
             }
         });
 
-        return view;
-    }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        start = (Button) view.findViewById(R.id.bt_start);
+        start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DownloadUtil.get().download("http://pcclient.download.youku.com/youkuclient/youkuclient_setup_7.9.2.1151.exe","/download",listener);
+
+            }
+        });
+
+
+        return view;
     }
 
 

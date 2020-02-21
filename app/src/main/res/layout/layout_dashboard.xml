@@ -22,7 +22,7 @@
         app:tikeStrArray="@array/meter"
         app:tikeStrColor="@color/colorAccent"
         app:tikeStrSize="10dp"
-        app:unit="m/s" />
+        app:unit="MB/s" />
 
     <SeekBar
         android:id="@+id/seekBar"
@@ -31,7 +31,15 @@
         android:layout_below="@id/dashboardView"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginBottom="15dp" />
+        android:visibility="gone"
+        android:layout_marginBottom="25dp" />
 
+    <Button
+        android:id="@+id/bt_start"
+        android:text="开始测速"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/dashboardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 </RelativeLayout>

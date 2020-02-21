@@ -13,6 +13,7 @@ import android.graphics.RectF;
 import android.graphics.SweepGradient;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import com.inspur.nikki.R;
@@ -287,7 +288,7 @@ public class DashboardView extends View {
         length = paintText.measureText(mText);
         canvas.drawText(mText, -length / 2, mMinRingRadius * 2.0F, paintText);
         paintText.setTextSize(mTextSize * 1.2f);
-        speed = StringUtil.floatFormat(startNum + (maxNum - startNum) * percent) + unit;
+        speed = StringUtil.floatFormat((startNum + (maxNum - startNum) * percent)/1000) + " " +unit;
         length = paintText.measureText(speed);
         canvas.drawText(speed, -length / 2, mMinRingRadius * 2.5F, paintText);
 
@@ -408,6 +409,7 @@ public class DashboardView extends View {
      */
     public void setPercent(int percent) {
         setAnimator(percent);
+        Log.i("Nikki","percent:"+percent);
     }
 
     private void setAnimator(final float percent) {
@@ -423,7 +425,7 @@ public class DashboardView extends View {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 DashboardView.this.percent = (float) animation.getAnimatedValue();
-                invalidate();
+                invalidate();//调用onDraw方法，进而用到percent
 
             }
 
