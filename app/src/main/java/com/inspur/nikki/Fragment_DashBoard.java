@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.SeekBar;
+import android.widget.Toast;
+
 import com.inspur.nikki.utils.DownloadUtil;
 import com.inspur.nikki.view.DashboardView;
 
@@ -22,12 +24,20 @@ public class Fragment_DashBoard extends Fragment {
     DownloadUtil.OnDownloadListener listener = new DownloadUtil.OnDownloadListener() {
         @Override
         public void onDownloadSuccess() {
+            Log.i("Nikki","测速完成");
+
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(getActivity(),"测速完成！",Toast.LENGTH_LONG).show();
+                }
+            });
 
         }
 
         @Override
         public void onDownloading(final int progress) {
-            Log.i("Nikki","speed:"+progress);
+            Log.i("Nikki","DashBoard-->speed:"+progress);
             getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
@@ -74,7 +84,6 @@ public class Fragment_DashBoard extends Fragment {
                 DownloadUtil.get().download("http://pcclient.download.youku.com/youkuclient/youkuclient_setup_7.9.2.1151.exe","/download",listener);
             }
         });
-
 
         return view;
     }

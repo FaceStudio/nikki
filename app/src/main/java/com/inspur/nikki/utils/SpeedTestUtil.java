@@ -7,9 +7,7 @@ import net.BaseNetCallBack;
 import net.MonitorNetWork;
 
 import java.io.File;
-import java.util.Date;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
 
 
 public class SpeedTestUtil {
@@ -59,7 +57,6 @@ public class SpeedTestUtil {
         } catch (Exception e) {
 
         }
-
 
         Log.i("Nikki", "a:" + a + "  b：" + b);
 

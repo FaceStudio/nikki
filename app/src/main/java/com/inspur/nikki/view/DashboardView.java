@@ -409,7 +409,6 @@ public class DashboardView extends View {
      */
     public void setPercent(int percent) {
         setAnimator(percent);
-        Log.i("Nikki","percent:"+percent);
     }
 
     private void setAnimator(final float percent) {
