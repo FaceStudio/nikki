@@ -60,7 +60,7 @@ public class SpeedTestUtil {
 
         Log.i("Nikki", "a:" + a + "  b：" + b);
 
-        long speed = ((file.length()*1000 / 8 / 1024) / (b - a));
+        long speed = ((file.length()*1000 / 1024) / (b - a)); //字节传输
 
         return speed;
 

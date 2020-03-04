@@ -81,7 +81,7 @@ public class Fragment_DashBoard extends Fragment {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DownloadUtil.get().download("http://pcclient.download.youku.com/youkuclient/youkuclient_setup_7.9.2.1151.exe","/download",listener);
+                DownloadUtil.get().download("http://192.168.10.131:8887/4kqj.mp4","/download",listener);
             }
         });
 

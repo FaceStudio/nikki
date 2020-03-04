@@ -1,11 +1,13 @@
 package com.inspur.nikki.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.TrafficStats;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 
 import java.io.BufferedReader;
@@ -20,6 +22,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.UUID;
 import java.util.concurrent.CountDownLatch;
 
@@ -103,15 +106,15 @@ public class NetUtils {
 
     public String getNetSpeedWithTrafficStats(Context context) {
         String netSpeed = "0 kb/s";
-        long nowTotalRxBytes = TrafficStats.getUidRxBytes(context.getApplicationInfo().uid)==
-                TrafficStats.UNSUPPORTED ? 0 :(TrafficStats.getTotalRxBytes()/1024);//转为KB;
+        long nowTotalRxBytes = TrafficStats.getUidRxBytes(context.getApplicationInfo().uid) ==
+                TrafficStats.UNSUPPORTED ? 0 : (TrafficStats.getTotalRxBytes() / 1024);//转为KB;
         long nowTimeStamp = System.currentTimeMillis();
         long speed = ((nowTotalRxBytes - lastTotalRxBytes) * 1000 / (nowTimeStamp - lastTimeStamp));//毫秒转换
 
         lastTimeStamp = nowTimeStamp;
         lastTotalRxBytes = nowTotalRxBytes;
-        netSpeed  = String.valueOf(speed) + " kb/s";
-        return  netSpeed;
+        netSpeed = String.valueOf(speed) + " kb/s";
+        return netSpeed;
     }
 
     public String getNetSpeedWithNetworkInfo(Context context) {
@@ -186,45 +189,63 @@ public class NetUtils {
         return null;
     }
 
-    public static Boolean checkIsArpSafe(Context context){
+    //检测是否遭受ARP攻击
+    public static Boolean checkIsArpSafe(Context context) {
 
-        WifiManager wifiManager = (WifiManager)context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         WifiInfo wifiInfo = wifiManager.getConnectionInfo();
         String bssid = wifiInfo.getBSSID();
         String ssid = wifiInfo.getSSID();
-        String mac = wifiInfo.getMacAddress();
 
         Log.i("Nikki", "bssid-->" + bssid);
         Log.i("Nikki", "ssid-->" + ssid);
-        Log.i("Nikki", "mac-->" + mac);
 
         //如果是unknown ssid ，就不要检测了，否则拿到bssid(即路由器的mac地址)，去arp文件里看看这个mac存在不存在，不存在，说明就被攻击了
-        if(ssid.equalsIgnoreCase("<unknown ssid>")){
+        //TODO 最好是通过more /proc/net/route 命令拿到网关ip(16进制，需要转成10进制)，再去arp列表里查找网关ip对应的mac
+        //然后对比此mac和bssid是否一致，不一致说明被劫持
+        if (ssid.equalsIgnoreCase("<unknown ssid>")) {
             return true;
         }
 
-//        DhcpInfo dhcpInfo = wifiManager.getDhcpInfo();
-//        Log.i("Nikki","dhcpInfo.gateway-->"+dhcpInfo.gateway);
-//        Log.i("Nikki","dhcpInfo.netmask-->"+dhcpInfo.netmask);
-//        Log.i("Nikki","dhcpInfo.ipAddress-->"+dhcpInfo.ipAddress);
-//        Log.i("Nikki","dhcpInfo.dns1-->"+dhcpInfo.dns1);
-//        Log.i("Nikki","dhcpInfo.dns2-->"+dhcpInfo.dns2);//  https://www.baidu.com  https://www.tmall.com/
-//        String v = RootCmd.execRootCmd("more /proc/net/route");
-//        Log.i("Nikki", "answer:" + v);
-
         String s = RootCmd.execRootCmd("more /proc/net/arp");
         Log.i("Nikki", "执行more /proc/net/arp的answer:" + s);
-//        String[] ss = s.split("/n");
-//        int n = ss.length;
-        if(s.contains(bssid)){
+        String[] ss = s.split("/n");
+        int n = ss.length;
+
+        if (n >= 2) {
+
+            for(int k=0;k<n;k++){
+                Log.i("Nikki","ss:"+k+":"+ss[k]);
+            }
+
+
+//            HashMap<Integer, String> list = new HashMap<>();
+//            for (int i = 1; i < n; i++) {
+//                String[] aa = ss[i].split(" ");
+//
+//                Log.i("Nikki","aa[21]:"+aa[21]);
+//                list.put(i, aa[21]);//aa[0]是ip，aa[21]是mac地址
+//            }
+//
+//            Log.i("Nikki", "list.size()-->" + list.size());
+//
+//            if (list.containsValue(bssid)) {
+//                Log.i("Nikki", "22222");
+//                return true;
+//            }
+
+
+        }
+
+        if(s.contains(bssid.substring(0,15))){
             return true;
         }
 
         return false;
     }
 
-
-    public static Boolean checkIsDNSHijack(){
+    //检测DNS是否被劫持
+    public static Boolean checkIsDNSHijack() {
 
         final CountDownLatch ctl = new CountDownLatch(2);
 
@@ -246,7 +267,7 @@ public class NetUtils {
                         String l = httpURLConnection.getResponseMessage();
                         Log.i("Nikki", v + "  " + s + "   " + l);
 
-                        if(s.contains("baidu")||v.contains("baidu")||l.contains("baidu")){
+                        if (s.contains("baidu") || v.contains("baidu") || l.contains("baidu")) {
                             isQQ = true;
                             ctl.countDown();
                         }
@@ -287,7 +308,7 @@ public class NetUtils {
 
         }
 
-        if(isQQ && isTMall){
+        if (isQQ && isTMall) {
             return true;
         }
 
@@ -295,4 +316,12 @@ public class NetUtils {
     }
 
 
+    public static boolean isPhone(Activity activity) {
+        TelephonyManager telephony = (TelephonyManager)activity.getSystemService(Context.TELEPHONY_SERVICE);
+        if (telephony.getPhoneType() != TelephonyManager.PHONE_TYPE_NONE) {
+            return true;
+        }else {
+            return false;
+        }
+    }
 }

@@ -96,7 +96,7 @@ public class DownloadUtil {
                         int progress = (int) (sum * 1.0f / total * 100);
                         Log.i("Nikki", "DownloadUtils-->progress:" + progress);
 
-                        long speed = ((sum * 1000/1024) / (System.currentTimeMillis() - startTime));
+                        long speed = ((sum * 1000/1024) / (System.currentTimeMillis() - startTime));//字节传输
 
                         // 下载中
                         listener.onDownloading((int)speed);

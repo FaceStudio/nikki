@@ -62,9 +62,9 @@ public class Fragment_Diagnose extends Fragment {
                                 handler.sendEmptyMessage(2);
                             }
 
-                            if (NetUtils.checkIsDNSHijack()) {
-                                handler.sendEmptyMessage(4);
-                            }
+//                            if (NetUtils.checkIsDNSHijack()) {
+//                                handler.sendEmptyMessage(4);
+//                            }
 
                             if (NetUtils.checkIsArpSafe(getContext())) {
                                 handler.sendEmptyMessage(5);
