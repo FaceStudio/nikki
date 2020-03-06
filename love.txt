@@ -4,4 +4,3 @@ i love girls
 
 git reset
 
-git revert
