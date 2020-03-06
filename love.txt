@@ -3,3 +3,5 @@ i am a boy
 i love girls
 
 git reset
+
+git revert
