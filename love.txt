@@ -4,5 +4,3 @@ i love girls
 
 git reset
 
-git add 123
-
