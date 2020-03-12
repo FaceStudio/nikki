@@ -1,5 +1,9 @@
 apply plugin: 'com.android.application'
 
+def releaseTime() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
+}
+
 android {
     compileSdkVersion 25
     defaultConfig {
@@ -8,14 +12,74 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
+
+        flavorDimensions "versionCode"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+//    signingConfigs{
+//        releaseConfig{
+//            storeFile file(KEY_PATH)
+//            storePassword KEY_PASS
+//            keyAlias ALIAS_NAME
+//            keyPassword ALIAS_PASS
+//        }
+//    }
+
     buildTypes {
         release {
             minifyEnabled false
+            zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    productFlavors {
+
+        baidu {
+            buildConfigField "int", "TYPE", "1"
+            manifestPlaceholders = [
+                    app_name: "Nikki",
+                    app_icon: "@drawable/java"
+            ]
+        }
+
+
+        xiaomi {
+            buildConfigField "int", "TYPE", "2"
+            manifestPlaceholders = [
+                    app_name: "Penny",
+                    app_icon: "@drawable/microsoft"
+            ]
+        }
+    }
+
+    //打包后应用名称
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def outputFile = output.outputFile
+            def fileName
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+
+                if ((variant.buildType.name).equals('release')) {
+                    if((variant.productFlavors[0].name).equals('baidu')){
+                        fileName = releaseTime() + "_baidu_" +versionName + ".apk"
+                    }else {
+                        fileName = releaseTime() + "_xiaomi_" +versionName + ".apk"
+                    }
+                } else if ((variant.buildType.name).equals('debug')) {
+                    fileName = "ibclte_debug.apk"
+                }
+                outputFileName = fileName
+            }
+        }
+    }
+
 }
 
 dependencies {
