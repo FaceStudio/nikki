@@ -4,6 +4,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,7 +60,22 @@ public class Fragment_Copy extends Fragment {
             }
         });
 
+
+        printResolution(getActivity());
+
         return view;
+    }
+
+
+    /**
+     * 打印不包括虚拟按键的分辨率、屏幕密度dpi、最小宽度sw
+     */
+    public void printResolution(Context context){
+        DisplayMetrics dm = context.getResources().getDisplayMetrics();
+        int height= dm.heightPixels;
+        int width= dm.widthPixels;
+        int sw=context.getResources().getConfiguration().smallestScreenWidthDp;
+        Log.i("Nikki","屏幕分辨率:" + width + "*" + height+",dpi:"+dm.densityDpi+",sw:"+sw);
     }
 
 
