@@ -34,6 +34,18 @@ android {
         }
     }
 
+
+//    sourceSets {
+//        main {
+//            res.srcDirs =
+//                    [
+//                            'src/main/res/layout/hencoder',
+//                            'src/main/res/layout',
+//                            'src/main/res'
+//                    ]
+//        }
+//    }
+
     lintOptions {
         checkReleaseBuilds false
         abortOnError false
