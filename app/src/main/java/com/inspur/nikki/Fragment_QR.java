@@ -27,7 +27,7 @@ public class Fragment_QR extends Fragment {
         hencoder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), HenCoder4Activity.class);
+                Intent intent = new Intent(getActivity(), HenCoder5Activity.class);
                 startActivity(intent);
             }
         });
