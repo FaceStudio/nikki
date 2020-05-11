@@ -29,9 +29,14 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".HenCoderActivity">
+        <activity android:name=".HenCoder1Activity">
         </activity>
 
+        <activity android:name=".HenCoder2Activity">
+        </activity>
+
+        <activity android:name=".WebViewActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -13,11 +13,9 @@ import android.graphics.RectF;
 import android.graphics.SweepGradient;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import com.inspur.nikki.R;
-import com.inspur.nikki.SpringInterpolator;
 import com.inspur.nikki.utils.PxUtils;
 import com.inspur.nikki.utils.StringUtil;
 

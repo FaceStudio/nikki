@@ -1,6 +1,5 @@
 package com.inspur.nikki;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -15,13 +14,6 @@ import com.inspur.nikki.utils.QRCodeUtil;
 
 public class Fragment_QR extends Fragment {
 
-
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-    }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -35,7 +27,7 @@ public class Fragment_QR extends Fragment {
         hencoder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(),HenCoderActivity.class);
+                Intent intent = new Intent(getActivity(), HenCoder2Activity.class);
                 startActivity(intent);
             }
         });
@@ -44,10 +36,5 @@ public class Fragment_QR extends Fragment {
 
     }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
-
-    }
 }

@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
                 return getString(pageModels.get(position).titleRes);
             }
         });
-
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(pager);
     }
