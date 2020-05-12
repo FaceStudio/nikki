@@ -66,6 +66,16 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/hencoder5" />
 
+    <Button
+        android:id="@+id/hencoder7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="HenCoder7"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hencoder6" />
+
 
     <ImageView
         android:id="@+id/iv"
@@ -75,6 +85,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/hencoder6"/>
+        app:layout_constraintTop_toBottomOf="@id/hencoder7"/>
 
 </android.support.constraint.ConstraintLayout>

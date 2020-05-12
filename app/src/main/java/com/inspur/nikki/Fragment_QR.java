@@ -79,6 +79,15 @@ public class Fragment_QR extends Fragment {
             }
         });
 
+        Button hencoder7 = (Button) view.findViewById(R.id.hencoder7);
+        hencoder7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), HenCoder7Activity.class);
+                startActivity(intent);
+            }
+        });
+
 
         return view;
 
