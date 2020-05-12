@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     List<PageModel> pageModels = new ArrayList<>();
 
     {
-        pageModels.add(new PageModel(new Fragment_QR(), R.string.qr_code));
+        pageModels.add(new PageModel(new Fragment_HenCoder(), R.string.hencoder));
         pageModels.add(new PageModel(new Fragment_Contacts(), R.string.list_contact));
         pageModels.add(new PageModel(new Fragment_Copy(), R.string.asset_copy));
         pageModels.add(new PageModel(new Fragment_File(), R.string.file));

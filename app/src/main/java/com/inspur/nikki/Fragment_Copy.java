@@ -10,7 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.inspur.nikki.utils.QRCodeUtil;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -40,6 +43,10 @@ public class Fragment_Copy extends Fragment {
 
         String path = "/mnt/sdcard/";
         copy(getContext(),"1.jpg",path,"chenzhen.jpg");
+
+        ImageView mImageView = (ImageView) view.findViewById(R.id.iv);
+        mImageView.setImageBitmap(QRCodeUtil.createQRCodeBitmap("陈震爱小宝宝，青青爱老公！", 500));
+
 
         start = (Button) view.findViewById(R.id.start);
         output = (TextView) view.findViewById(R.id.output);

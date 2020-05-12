@@ -8,20 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 
-import com.inspur.nikki.utils.QRCodeUtil;
-
-public class Fragment_QR extends Fragment {
+public class Fragment_HenCoder extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.layout_qrcode, container, false);
+        View view = inflater.inflate(R.layout.layout_hencoder, container, false);
 
-        ImageView mImageView = (ImageView) view.findViewById(R.id.iv);
-        mImageView.setImageBitmap(QRCodeUtil.createQRCodeBitmap("陈震爱小宝宝，青青爱老公！", 500));
 
         Button hencoder1 = (Button) view.findViewById(R.id.hencoder1);
         hencoder1.setOnClickListener(new View.OnClickListener() {
