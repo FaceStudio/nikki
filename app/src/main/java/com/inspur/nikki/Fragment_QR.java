@@ -27,7 +27,8 @@ public class Fragment_QR extends Fragment {
         hencoder1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), HenCoder1Activity.class);
+                Intent intent = new Intent(getActivity(), HenCoderActivity.class);
+                intent.putExtra("type",1);
                 startActivity(intent);
             }
         });
@@ -36,7 +37,8 @@ public class Fragment_QR extends Fragment {
         hencoder2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), HenCoder2Activity.class);
+                Intent intent = new Intent(getActivity(), HenCoderActivity.class);
+                intent.putExtra("type",2);
                 startActivity(intent);
             }
         });
@@ -45,7 +47,8 @@ public class Fragment_QR extends Fragment {
         hencoder3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), HenCoder3Activity.class);
+                Intent intent = new Intent(getActivity(), HenCoderActivity.class);
+                intent.putExtra("type",3);
                 startActivity(intent);
             }
         });
@@ -55,7 +58,8 @@ public class Fragment_QR extends Fragment {
         hencoder4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), HenCoder4Activity.class);
+                Intent intent = new Intent(getActivity(), HenCoderActivity.class);
+                intent.putExtra("type",4);
                 startActivity(intent);
             }
         });
@@ -65,7 +69,8 @@ public class Fragment_QR extends Fragment {
         hencoder5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), HenCoder5Activity.class);
+                Intent intent = new Intent(getActivity(), HenCoderActivity.class);
+                intent.putExtra("type",5);
                 startActivity(intent);
             }
         });
@@ -74,7 +79,8 @@ public class Fragment_QR extends Fragment {
         hencoder6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), HenCoder6Activity.class);
+                Intent intent = new Intent(getActivity(), HenCoderActivity.class);
+                intent.putExtra("type",6);
                 startActivity(intent);
             }
         });
@@ -83,7 +89,8 @@ public class Fragment_QR extends Fragment {
         hencoder7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), HenCoder7Activity.class);
+                Intent intent = new Intent(getActivity(), HenCoderActivity.class);
+                intent.putExtra("type",7);
                 startActivity(intent);
             }
         });
