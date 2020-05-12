@@ -135,6 +135,7 @@ public class HenCoderActivity extends AppCompatActivity {
                 pageModels.add(new PageModel(R.layout.sample_property_values_holder, R.string.title_property_values_holder, R.layout.practice_property_values_holder));
                 pageModels.add(new PageModel(R.layout.sample_animator_set, R.string.title_animator_set, R.layout.practice_animator_set));
                 pageModels.add(new PageModel(R.layout.sample_keyframe, R.string.title_keyframe, R.layout.practice_keyframe));
+                pageModels.add(new PageModel(R.layout.sample_square_image_view, R.string.title_08, R.layout.practice_square_image_view));
             }
             break;
 
