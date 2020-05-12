@@ -44,6 +44,9 @@
         <activity android:name=".HenCoder5Activity">
         </activity>
 
+        <activity android:name=".HenCoder6Activity">
+        </activity>
+
         <activity android:name=".WebViewActivity">
         </activity>
     </application>
