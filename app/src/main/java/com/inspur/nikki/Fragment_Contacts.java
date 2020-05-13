@@ -41,13 +41,19 @@ public class Fragment_Contacts extends Fragment {
         adapter = new ArrayAdapter<String>(getContext(), R.layout.support_simple_spinner_dropdown_item, contactlists);
         contactsView.setAdapter(adapter);
 
+        return view;
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.READ_CONTACTS}, 1);
         } else {
             readContacts();
         }
-
-        return view;
 
     }
 
@@ -72,6 +78,7 @@ public class Fragment_Contacts extends Fragment {
                 String number = cursor.getString(cursor.getColumnIndex(
                         ContactsContract.CommonDataKinds.Phone.NUMBER));
                 contactlists.add(displayName + "\n" + number);
+                adapter.notifyDataSetChanged();
             }
         } catch (Exception e) {
             e.printStackTrace();
