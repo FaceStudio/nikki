@@ -16,8 +16,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.inspur.nikki.utils.SpeedTestUtil;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
@@ -98,19 +96,6 @@ public class Fragment_File extends Fragment {
 
                 SQLiteDatabase db = dbHelper.getWritableDatabase();
                 db.delete("Book", "pages > ?", new String[]{"500"});
-            }
-        });
-
-        Button speedButton = (Button) view.findViewById(R.id.speed_test);
-        speedButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                Log.i("Nikki", "speed:" + SpeedTestUtil.speed(getContext()));
-
-//                Toast.makeText(getContext(),"",Toast.LENGTH_LONG).show();
-
             }
         });
 
