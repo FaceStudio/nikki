@@ -48,7 +48,6 @@ public class Fragment_Contacts extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-
         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.READ_CONTACTS}, 1);
         } else {

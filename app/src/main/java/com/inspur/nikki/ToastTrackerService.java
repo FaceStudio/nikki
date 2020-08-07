@@ -70,11 +70,11 @@ public class ToastTrackerService extends AccessibilityService {
 
         NotificationCompat.Builder builder = (new NotificationCompat.Builder(getApplicationContext())).setSmallIcon(R.drawable.java).setLargeIcon(paramBitmap);
         StringBuilder stringBuilder2 = new StringBuilder();
-        stringBuilder2.append("");
+        stringBuilder2.append("Name:");
         stringBuilder2.append(paramString1);
         builder = builder.setContentTitle(stringBuilder2.toString());
         StringBuilder stringBuilder1 = new StringBuilder();
-        stringBuilder1.append("Toast");
+        stringBuilder1.append("PN:");
         stringBuilder1.append(paramString2);
         builder = builder.setContentText(stringBuilder1.toString()).setPriority(2);
         NotificationManagerCompat.from(getApplicationContext()).notify(paramInt, builder.build());
