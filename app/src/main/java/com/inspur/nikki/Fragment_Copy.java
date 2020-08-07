@@ -45,7 +45,7 @@ public class Fragment_Copy extends Fragment {
         copy(getContext(),"1.jpg",path,"chenzhen.jpg");
 
         ImageView mImageView = (ImageView) view.findViewById(R.id.iv);
-        mImageView.setImageBitmap(QRCodeUtil.createQRCodeBitmap("陈震爱小宝宝，青青爱老公！", 500));
+        mImageView.setImageBitmap(QRCodeUtil.createQRCodeBitmap("http://www.baidu.com", 500));
 
 
         start = (Button) view.findViewById(R.id.start);

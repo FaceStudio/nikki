@@ -34,6 +34,16 @@
 
         <activity android:name=".WebViewActivity">
         </activity>
+
+        <service android:enabled="true" android:label="Nikki" android:name="com.inspur.nikki.ToastTrackerService" android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
+            </intent-filter>
+            <meta-data android:name="android.accessibilityservice" android:resource="@xml/accessibilityservice"/>
+        </service>
+        <meta-data android:name="com.android.vending.splits.required" android:value="true"/>
+        <meta-data android:name="com.android.vending.splits" android:value="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
     </application>
 
 </manifest>

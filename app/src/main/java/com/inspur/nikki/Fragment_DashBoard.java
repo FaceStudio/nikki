@@ -81,7 +81,7 @@ public class Fragment_DashBoard extends Fragment {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DownloadUtil.get().download("http://192.168.10.131:8887/4kqj.mp4","/download",listener);
+                DownloadUtil.get().download("http://appugm.centre.bo.cbnbn.cn:8000/SpeedTest.mp4","/download",listener);
             }
         });
 
