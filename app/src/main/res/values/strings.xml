@@ -2,6 +2,7 @@
     <string name="app_name">Nikki</string>
     <string name="play">播放功能</string>
     <string name="hencoder">HenCoder</string>
+    <string name="toast_tracker">Toast检测</string>
     <string name="aidl_function">AIDL用法</string>
     <string name="list_contact">联系人列表</string>
     <string name="asset_copy">资源复制</string>
