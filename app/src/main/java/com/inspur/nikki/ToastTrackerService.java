@@ -24,10 +24,13 @@ public class ToastTrackerService extends AccessibilityService {
 
             try {
                 PackageManager packageManager = getPackageManager();
+
+                String content = ((CharSequence)accessibilityEvent.getText().get(0)).toString();
+
                 @SuppressLint("WrongConstant") String name = packageManager.getApplicationLabel(getPackageManager().getApplicationInfo(str, 128)).toString();
                 @SuppressLint("WrongConstant") String packagename = getPackageManager().getApplicationInfo(str, 128).toString();
 
-                Log.i("Nikki", "package name:" + packagename);
+                Log.i("Nikki", "package name:" + packagename + "    content:"+ content);
 
                 showNotification(drawable2Bitmap(packageManager.getApplicationIcon(str)), name, packagename, getNotiID());
 
