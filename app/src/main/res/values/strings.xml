@@ -2,6 +2,7 @@
     <string name="app_name">Nikki</string>
     <string name="play">播放功能</string>
     <string name="hencoder">HenCoder</string>
+    <string name="circle_photo">轮播图</string>
     <string name="toast_tracker">Toast检测</string>
     <string name="aidl_function">AIDL用法</string>
     <string name="list_contact">联系人列表</string>
@@ -11,6 +12,18 @@
     <string name="diagnose">网络诊断</string>
 
     <string name="service_description">您需要启动此辅助功能服务来探测Toast</string>
+
+
+    <string-array name="magic_effect">
+        <item>RotateDown</item>
+        <item>RotateUp</item>
+        <item>RotateY</item>
+        <item>Standard</item>
+        <item>Alpha</item>
+        <item>ScaleIn</item>
+        <item>RotateDown and Alpha</item>
+        <item>RotateDown and Alpha And ScaleIn</item>
+    </string-array>
 
 
     <string name="title_draw_color">drawColor()</string>

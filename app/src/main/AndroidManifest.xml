@@ -29,11 +29,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".HenCoderActivity">
-        </activity>
-
-        <activity android:name=".WebViewActivity">
-        </activity>
+        <activity android:name=".HenCoderActivity"/>
+        <activity android:name=".WebViewActivity"/>
+        <activity android:name=".CircleViewPagerActivity"/>
+        <activity android:name=".StandardViewPagerActivity"/>
 
         <service android:enabled="true" android:label="Nikki" android:name="com.inspur.nikki.ToastTrackerService" android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>

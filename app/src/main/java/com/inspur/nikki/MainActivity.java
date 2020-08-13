@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     {
         pageModels.add(new PageModel(new Fragment_HenCoder(), R.string.hencoder));
+        pageModels.add(new PageModel(new Fragment_CirclePhoto(), R.string.circle_photo));
         pageModels.add(new PageModel(new Fragment_ToastTracker(), R.string.toast_tracker));
         pageModels.add(new PageModel(new Fragment_Contacts(), R.string.list_contact));
         pageModels.add(new PageModel(new Fragment_Copy(), R.string.asset_copy));
