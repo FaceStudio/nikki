@@ -42,4 +42,10 @@ public class Sample04SetTypefaceView extends View {
         paint.setTypeface(typeface);
         canvas.drawText(text, 50, 300, paint);
     }
+
+    @Override
+    protected void dispatchDraw(Canvas canvas) {
+        super.dispatchDraw(canvas);
+
+    }
 }
