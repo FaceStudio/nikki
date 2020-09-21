@@ -13,11 +13,11 @@ public class PageFragment extends Fragment {
     @LayoutRes int sampleLayoutRes;
     @LayoutRes int practiceLayoutRes;
 
-    public static PageFragment newInstance(@LayoutRes int sampleLayoutRes, @LayoutRes int practiceLayoutRes) {
+    public static PageFragment newInstance(@LayoutRes int sampleLayoutRes) {
         PageFragment fragment = new PageFragment();
         Bundle args = new Bundle();
         args.putInt("sampleLayoutRes", sampleLayoutRes);
-        args.putInt("practiceLayoutRes", practiceLayoutRes);
+//        args.putInt("practiceLayoutRes", practiceLayoutRes);
         fragment.setArguments(args);
         return fragment;
     }
@@ -31,9 +31,9 @@ public class PageFragment extends Fragment {
         sampleStub.setLayoutResource(sampleLayoutRes);
         sampleStub.inflate();
 
-        ViewStub practiceStub = (ViewStub) view.findViewById(R.id.practiceStub);
-        practiceStub.setLayoutResource(practiceLayoutRes);
-        practiceStub.inflate();
+//        ViewStub practiceStub = (ViewStub) view.findViewById(R.id.practiceStub);
+//        practiceStub.setLayoutResource(practiceLayoutRes);
+//        practiceStub.inflate();
 
         return view;
     }
