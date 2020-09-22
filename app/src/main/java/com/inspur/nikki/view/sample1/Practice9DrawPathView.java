@@ -1,4 +1,4 @@
-package com.inspur.nikki.view.practice1;
+package com.inspur.nikki.view.sample1;
 
 import android.content.Context;
 import android.graphics.Canvas;
